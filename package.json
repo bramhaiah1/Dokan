@@ -38,6 +38,7 @@
     "react-native-input-picker": "^1.0.0",
     "react-native-linear-gradient": "^2.5.6",
     "react-native-paper": "^4.7.2",
+    "react-native-paypal-gateway": "^1.0.0",
     "react-native-reanimated": "^2.0.1",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-safe-area-view": "^1.1.1",

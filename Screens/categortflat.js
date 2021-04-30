@@ -29,7 +29,8 @@ class ShopingCart02 extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      visibility:true,checked:false,data6:[],
+      visibility:true,checked:false,
+      data6:[],
       filter:false,
       count:0,
       show:true,

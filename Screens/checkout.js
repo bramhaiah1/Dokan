@@ -10,6 +10,7 @@ import Icon from "react-native-vector-icons/Ionicons"
 import { connect } from "react-redux";
 import { Avatar, Badge, withBadge } from "react-native-elements";
 import { NavigationEvents } from "react-navigation";
+import PayPal from 'react-native-paypal-gateway';
 
 import PaymentModel from "./paymentmodel";
 
@@ -51,6 +52,16 @@ const getItemsCount = () => {
       
     
   };
+  const paypal=()=>{
+    //("a")
+    PayPal.initialize(PayPal.SANDBOX, "AdAgu97jlo-fwzSs_KaeI8zAHDOVuMzA_37udqlGNS-xWxl7WJySkos-PJTRvN0AX_hmP8957YwQOfgM");
+    PayPal.pay({
+      price: '1.70',
+      currency: 'USD',
+      description: 'Your description goes here',
+    }).then(confirm => console.log(confirm))
+      .catch(error => console.log(error));
+  }
 const _keyExtractor = (item, idx) => item.id;
 
 
@@ -166,10 +177,13 @@ H K Wonton Garden | (212) 349-1495
 <View style={{        top:height/15,
 }}>
              
-             <TouchableOpacity  onPress = {() => {  
-               props.orderPlaced();
-setTimeout(getItemsCount, 1000);
-                  setvisible(!visible)}} style={styles.Done} >
+             <TouchableOpacity 
+             onPress={()=>paypal()} 
+//              onPress = {() => {  
+//                props.orderPlaced();
+// setTimeout(getItemsCount, 1000);
+//                   setvisible(!visible)}} 
+                  style={styles.Done} >
              
             <Text style={styles.Getstartedtext}>Place Order</Text></TouchableOpacity>
            </View>
