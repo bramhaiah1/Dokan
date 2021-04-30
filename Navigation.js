@@ -1,18 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View,SafeAreaView,ScrollView,TouchableOpacity,Image } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
 import Fontisto from "react-native-vector-icons/Fontisto";
- import MaterialIcons  from 'react-native-vector-icons/MaterialIcons';
- import Icon from "react-native-vector-icons/FontAwesome5"
- import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
- import { createDrawerNavigator, DrawerItems,DrawerActions } from "react-navigation-drawer";
- import { createBottomTabNavigator } from "react-navigation-tabs";
- import FontAwesome from "react-native-vector-icons/FontAwesome";
- import AntDesign from "react-native-vector-icons/AntDesign";
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Icon from "react-native-vector-icons/FontAwesome5"
+import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+import { createDrawerNavigator, DrawerItems, DrawerActions } from "react-navigation-drawer";
+import { createBottomTabNavigator } from "react-navigation-tabs";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import AntDesign from "react-native-vector-icons/AntDesign";
 //  import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import {scale, verticalScale, moderateScale,width,height} from "./Screens/style"
+import { scale, verticalScale, moderateScale, width, height } from "./Screens/style"
 
- import Entypo from "react-native-vector-icons/Entypo";
+import Entypo from "react-native-vector-icons/Entypo";
 import { createAppContainer } from 'react-navigation'
 import Login from './Screens/Loginscreen'
 import Register from './Screens/Registrationscrene'
@@ -26,7 +26,7 @@ import searchbar from './Screens/searchbar';
 import buy from './Screens/Buy'
 import Subcategory from './Screens/subcategory'
 import Allsubcategories from './Screens/allsubcategories'
-import cart from './Screens/cart'
+import cart from './Screens/!temp/cart'
 import Bestsale from './Screens/list_of_products'
 import profile from './Screens/profile'
 import whitlist from './Screens/Whitlist'
@@ -35,7 +35,7 @@ import Whitlist1 from './Screens/whitlist1'
 import order from "./Screens/orderscreen";
 import checkout from "./Screens/checkout";
 import loader from './Screens/loader'
-import {colors} from './Screens/colors'
+import { colors } from './Screens/colors'
 
 const TabNavigator = createBottomTabNavigator(
   {
@@ -43,7 +43,7 @@ const TabNavigator = createBottomTabNavigator(
     Products1: {
       screen: Home,
       navigationOptions: {
-        
+
         tabBarIcon: ({ tintColor }) => {
           return <Icon name="home" size={22} color={tintColor} />;
         },
@@ -96,277 +96,285 @@ const TabNavigator = createBottomTabNavigator(
 );
 
 const LOGIN = createStackNavigator({
-  
+
   TabNavigator: {
     screen: TabNavigator,
     navigationOptions: {
-      headerShown:false,
+      headerShown: false,
       drawerIcon: ({ tintColor }) => {
         return <Icon name="home" size={20} color={tintColor} />
       }
     }
   },
- checkout:{
-   screen:checkout,
-   navigationOptions: {
+  checkout: {
+    screen: checkout,
+    navigationOptions: {
 
-   headerShown:false}
- }
- ,
+      headerShown: false
+    }
+  }
+  ,
   cart: {
     screen: cart,
-    headerShown:true,
-    navigationOptions: ({ navigation }) => ({      
+    headerShown: true,
+    navigationOptions: ({ navigation }) => ({
       //headerLeft: () => <AntDesign style={{left:20}} onPress={()=>navigation.navigate("Buy")} name="arrowleft" size={20} color="#fff" />,
-      headerRight: () => <MaterialIcons style={{right:20}} onPress={()=>alert("Deleted")} name="delete" size={20} color="#fff" />,
-      headerTitle:"My Cart ",
+      headerRight: () => <MaterialIcons style={{ right: 20 }} onPress={() => alert("Deleted")} name="delete" size={20} color="#fff" />,
+      headerTitle: "My Cart ",
       headerStyle: {
         backgroundColor: "#d8341c",
-        
+
       },
       headerTitleStyle: {
         fontWeight: "bold",
         color: "#FFFFFF",
         fontSize: 18,
-      },  
-    
-      tabBarVisible:false
+      },
+
+      tabBarVisible: false
     }),
-    
-  
-  
+
+
+
   },
   LoginScreen: {
     screen: Login,
-    navigationOptions: ({ navigation }) => ({      
-    headerShown:false,
-  }),
-  
+    navigationOptions: ({ navigation }) => ({
+      headerShown: false,
+    }),
+
   },
   Buy: {
     screen: buy,
-    
-    navigationOptions: ({ navigation }) => ({      
-     // headerLeft: () => <AntDesign style={{left:20}} onPress={()=>navigation.navigate("Products")} name="arrowleft" size={20} color="#fff" />,
-     // headerRight: () => <AntDesign style={{right:20}} onPress={()=>navigation.navigate("Cartscreen")} name="shoppingcart" size={20} color="#fff" />,
-      headerShown:false,
+
+    navigationOptions: ({ navigation }) => ({
+      // headerLeft: () => <AntDesign style={{left:20}} onPress={()=>navigation.navigate("Products")} name="arrowleft" size={20} color="#fff" />,
+      // headerRight: () => <AntDesign style={{right:20}} onPress={()=>navigation.navigate("Cartscreen")} name="shoppingcart" size={20} color="#fff" />,
+      headerShown: false,
       // headerTitle:"Product Details",
       // headerStyle: {
       //   backgroundColor: "#d8341c",
-        
+
       // },
       // headerTitleStyle: {
       //   fontWeight: "bold",
       //   color: "#FFFFFF",
       //   fontSize: 18,
       // },  
-    
-      tabBarVisible:false
+
+      tabBarVisible: false
     }),
-    
- 
-  
+
+
+
   },
   Cartscreen: {
     screen: CartScreen1,
-    navigationOptions: ({ navigation }) => ({  
-      headerTitle:"Items in Cart",
+    navigationOptions: ({ navigation }) => ({
+      headerTitle: "Items in Cart",
       headerStyle: {
-color:"rgba(115,149,160,255)"        
+        color: "rgba(115,149,160,255)"
       },
       headerTitleStyle: {
         fontWeight: "bold",
-        color:"rgba(115,149,160,255)" ,
-                fontSize: 18,
-      },      
-    headerShown:true,
-  }),},
+        color: "rgba(115,149,160,255)",
+        fontSize: 18,
+      },
+      headerShown: true,
+    }),
+  },
   cate: {
     screen: category2,
-    navigationOptions: ({ navigation }) => ({      
-    headerShown:false,
-  }),},
- 
+    navigationOptions: ({ navigation }) => ({
+      headerShown: false,
+    }),
+  },
+
   subcategory: {
     screen: Subcategory,
-    navigationOptions: ({ navigation }) => ({      
-    headerShown:true,
-  }),},
+    navigationOptions: ({ navigation }) => ({
+      headerShown: true,
+    }),
+  },
   Products: {
     screen: category21,
-    navigationOptions: ({ navigation }) => ({      
-    headerShown:false,
-  }),},
+    navigationOptions: ({ navigation }) => ({
+      headerShown: false,
+    }),
+  },
   order: {
     screen: order,
-    navigationOptions: ({ navigation }) => ({      
-    headerShown:false,
-  }),},
+    navigationOptions: ({ navigation }) => ({
+      headerShown: false,
+    }),
+  },
   Search: {
     screen: searchbar,
-    navigationOptions: ({ navigation }) => ({      
-    headerShown:false,
-  }),},
+    navigationOptions: ({ navigation }) => ({
+      headerShown: false,
+    }),
+  },
   Bestsale1: {
     screen: Bestsale,
-    navigationOptions: ({ navigation }) => ({      
-    headerShown:true,
-    headerTitle:"Products",
-    headerLeft: () =>      <AntDesign onPress={()=>this.props.navigation.goBack(null)
-    } name="arrowleft" style={{color:"rgba(115,149,160,255)",left:width/20}} size={25} />,
-    headerTitleStyle: {
-      color:"rgba(115,149,160,255)" ,
-    right:width/10,
-    alignSelf:"center"
-    },
-    tabBarVisible:true
-    
-  }),},
+    navigationOptions: ({ navigation }) => ({
+      headerShown: true,
+      headerTitle: "Products",
+      headerLeft: () => <AntDesign onPress={() => this.props.navigation.goBack(null)
+      } name="arrowleft" style={{ color: "rgba(115,149,160,255)", left: width / 20 }} size={25} />,
+      headerTitleStyle: {
+        color: "rgba(115,149,160,255)",
+        right: width / 10,
+        alignSelf: "center"
+      },
+      tabBarVisible: true
+
+    }),
+  },
   forgot: {
 
-    screen:Forgot,
+    screen: Forgot,
     navigationOptions: ({ navigation }) => ({
-     
 
-headerTitle:"Password Reset" , 
-headerTintColor:"black" ,   
-justifyContent:"center"
+
+      headerTitle: "Password Reset",
+      headerTintColor: "black",
+      justifyContent: "center"
     }),
- },
+  },
 
   switch: {
-    screen:Register,
-    navigationOptions: ({ navigation }) => ({      
-      headerShown:false,
+    screen: Register,
+    navigationOptions: ({ navigation }) => ({
+      headerShown: false,
     }),
   },
   category: {
-    screen:category1,
-    navigationOptions: ({ navigation }) => ({      
-      headerShown:true,
+    screen: category1,
+    navigationOptions: ({ navigation }) => ({
+      headerShown: true,
     }),
   },
-  
+
 })
 
 const HOME1 = createStackNavigator(
   {
     Logout: {
       screen: Home,
-      navigationOptions: ({ navigation }) => ({      
-        headerLeft: () =><Drawer navigationProps={navigation}   />,
-        headerShown:false,
+      navigationOptions: ({ navigation }) => ({
+        headerLeft: () => <Drawer navigationProps={navigation} />,
+        headerShown: false,
 
         //headerTintColor:"#fff" ,  h 
         headerStyle: {
           backgroundColor: '#fff'
         },
-    }),
+      }),
     },
-   
-   
+
+
   },
-  
-  )
+
+)
 const NavigationDrawer = createDrawerNavigator({
-  InitialPage:{
-    screen:LOGIN,
-   
-    
-    navigationOptions: ({navigation}) => {
+  InitialPage: {
+    screen: LOGIN,
+
+
+    navigationOptions: ({ navigation }) => {
       return {
-          drawerLabel: () => null,
+        drawerLabel: () => null,
       }
     }
   },
 
-  Home:{
-    screen:Whitlist1,
+  Home: {
+    screen: Whitlist1,
     navigationOptions: {
       drawerIcon: () => {
-        return <FontAwesome5Icon name="sign-in-alt" size={30}  />
+        return <FontAwesome5Icon name="sign-in-alt" size={30} />
       }
-    
+
     },
   },
-  Notifications:{
-    screen:Whitlist1,
+  Notifications: {
+    screen: Whitlist1,
     navigationOptions: {
       drawerIcon: () => {
-        return <FontAwesome5Icon name="sign-in-alt" size={30}  />
+        return <FontAwesome5Icon name="sign-in-alt" size={30} />
       }
-    
+
     },
   },
-  "About Us":{
-    screen:Whitlist1,
+  "About Us": {
+    screen: Whitlist1,
     navigationOptions: {
       drawerIcon: () => {
-        return <FontAwesome5Icon name="sign-in-alt" size={30}  />
+        return <FontAwesome5Icon name="sign-in-alt" size={30} />
       }
-    
+
     },
   },
-  "Sign Out":{
-    screen:Whitlist1,
+  "Sign Out": {
+    screen: Whitlist1,
     navigationOptions: {
       drawerIcon: () => {
-        return <FontAwesome5Icon name="sign-in-alt" size={30}  />
+        return <FontAwesome5Icon name="sign-in-alt" size={30} />
       }
-    
+
     },
   },
 },
-{
-  contentComponent: (props) => (
-    <SafeAreaView style={{overflow:"hidden"}}>
+  {
+    contentComponent: (props) => (
+      <SafeAreaView style={{ overflow: "hidden" }}>
 
-        <View style={{height:200,width:width, backgroundColor:colors.activedotcolor,borderBottomLeftRadius:220,borderBottomRightRadius:220,right:width/40}}>
-          
-        <View style={{height:200,backgroundColor:colors.lightcolor,borderBottomLeftRadius:180,borderBottomRightRadius:200,width:width,right:width/5,elevation:12}}>
-        <View style={{height:200,backgroundColor:'#0e153d',borderBottomLeftRadius:200,borderBottomRightRadius:200,width:width,left:width/6,elevation:32}}/></View>
+        <View style={{ height: 200, width: width, backgroundColor: colors.activedotcolor, borderBottomLeftRadius: 220, borderBottomRightRadius: 220, right: width / 40 }}>
 
-          </View>
-<Image  style={{alignSelf:"center",elevation:77,bottom:180}}                              
-       source={require("./assets/ProfileAvatar.png")} 
-    />
-    <Text style={styles.text4}>Fariha Anjum</Text>
-    <Text style={styles.text5}>farihaanjum@gmail.com</Text>
-    <AntDesign onPress={()=>props.navigation.goBack()} name="arrowleft" size={35} style={{color:colors.ash,alignSelf:"flex-end",bottom:350}}  />
-    
-    <View style={{bottom:150,paddingBottom:height/50,paddingTop:height/50}} >
-                <TouchableOpacity onPress={()=>props.navigation.goBack()}>
-                <Text style={{color:colors.backgroundcolor,fontWeight:"bold",fontSize:22,left:width/10}}><AntDesign name="home" size={25} color={colors.backgroundcolor}  /> Home</Text>
-                </TouchableOpacity>
-                <View style={{borderWidth:1,borderColor:colors.lightcolor}}/>
+          <View style={{ height: 200, backgroundColor: colors.lightcolor, borderBottomLeftRadius: 180, borderBottomRightRadius: 200, width: width, right: width / 5, elevation: 12 }}>
+            <View style={{ height: 200, backgroundColor: '#0e153d', borderBottomLeftRadius: 200, borderBottomRightRadius: 200, width: width, left: width / 6, elevation: 32 }} /></View>
 
-                </View>
-                <View style={{bottom:150,paddingBottom:height/50,paddingTop:height/50}} >
-                <TouchableOpacity onPress={()=>props.navigation.goBack()}>
-                <Text style={{color:colors.backgroundcolor,fontWeight:"bold",fontSize:22,left:width/10}}><AntDesign name="bells" size={25} color={colors.backgroundcolor}  /> Notifications</Text>
-                </TouchableOpacity>
-                <View style={{borderWidth:1,borderColor:colors.lightcolor}}/>
+        </View>
+        <Image style={{ alignSelf: "center", elevation: 77, bottom: 180 }}
+          source={require("./assets/ProfileAvatar.png")}
+        />
+        <Text style={styles.text4}>Fariha Anjum</Text>
+        <Text style={styles.text5}>farihaanjum@gmail.com</Text>
+        <AntDesign onPress={() => props.navigation.goBack()} name="arrowleft" size={35} style={{ color: colors.ash, alignSelf: "flex-end", bottom: 350 }} />
 
-                </View>
-                <View style={{bottom:150,paddingBottom:height/50,paddingTop:height/50}} >
-                <TouchableOpacity onPress={()=>props.navigation.goBack()}>
-                <Text style={{color:colors.backgroundcolor,fontWeight:"bold",fontSize:22,left:width/10}}> <AntDesign name="infocirlceo" size={25} color={colors.backgroundcolor}  /> About Us</Text>
-                </TouchableOpacity>
-                <View style={{borderWidth:1,borderColor:colors.lightcolor}}/>
+        <View style={{ bottom: 150, paddingBottom: height / 50, paddingTop: height / 50 }} >
+          <TouchableOpacity onPress={() => props.navigation.goBack()}>
+            <Text style={{ color: colors.backgroundcolor, fontWeight: "bold", fontSize: 22, left: width / 10 }}><AntDesign name="home" size={25} color={colors.backgroundcolor} /> Home</Text>
+          </TouchableOpacity>
+          <View style={{ borderWidth: 1, borderColor: colors.lightcolor }} />
 
-                </View>
-                <View style={{bottom:150,paddingBottom:height/50,paddingTop:height/50}} >
-                <TouchableOpacity onPress={()=>props.navigation.navigate('LoginScreen')}>
-                <Text style={{color:colors.backgroundcolor,fontWeight:"bold",fontSize:22,left:width/10}}> <FontAwesome5Icon name="sign-in-alt" size={25} color={colors.backgroundcolor}   /> Login</Text>
-                </TouchableOpacity>
-                <View style={{borderWidth:1,borderColor:colors.lightcolor}}/>
+        </View>
+        <View style={{ bottom: 150, paddingBottom: height / 50, paddingTop: height / 50 }} >
+          <TouchableOpacity onPress={() => props.navigation.goBack()}>
+            <Text style={{ color: colors.backgroundcolor, fontWeight: "bold", fontSize: 22, left: width / 10 }}><AntDesign name="bells" size={25} color={colors.backgroundcolor} /> Notifications</Text>
+          </TouchableOpacity>
+          <View style={{ borderWidth: 1, borderColor: colors.lightcolor }} />
 
-                </View>
-                
-    </SafeAreaView>
+        </View>
+        <View style={{ bottom: 150, paddingBottom: height / 50, paddingTop: height / 50 }} >
+          <TouchableOpacity onPress={() => props.navigation.goBack()}>
+            <Text style={{ color: colors.backgroundcolor, fontWeight: "bold", fontSize: 22, left: width / 10 }}> <AntDesign name="infocirlceo" size={25} color={colors.backgroundcolor} /> About Us</Text>
+          </TouchableOpacity>
+          <View style={{ borderWidth: 1, borderColor: colors.lightcolor }} />
 
-  )
-}
+        </View>
+        <View style={{ bottom: 150, paddingBottom: height / 50, paddingTop: height / 50 }} >
+          <TouchableOpacity onPress={() => props.navigation.navigate('LoginScreen')}>
+            <Text style={{ color: colors.backgroundcolor, fontWeight: "bold", fontSize: 22, left: width / 10 }}> <FontAwesome5Icon name="sign-in-alt" size={25} color={colors.backgroundcolor} /> Login</Text>
+          </TouchableOpacity>
+          <View style={{ borderWidth: 1, borderColor: colors.lightcolor }} />
+
+        </View>
+
+      </SafeAreaView>
+
+    )
+  }
 )
 const AppContainer = createAppContainer(NavigationDrawer);
 export default AppContainer
@@ -382,29 +390,29 @@ const styles = StyleSheet.create({
     height: "100%",
     //backgroundColor: 'rgba(183,207,208,255)',
     color: "rgb(0,0,0)",
-    overflow:"hidden"
+    overflow: "hidden"
   },
   profileHeader: {
     flexDirection: "row",
     backgroundColor: 'rgba(183,207,208,255)',
     padding: 15,
     textAlign: "center",
-    alignSelf:"center"
+    alignSelf: "center"
   },
   profileHeaderPicCircle: {
-    bottom:height/20,
-    width: width/3,
-    height: height/6,
+    bottom: height / 20,
+    width: width / 3,
+    height: height / 6,
     borderRadius: 400 / 2,
     color: "rgb(0,0,0)",
     backgroundColor: "#ffff",
     textAlign: "center",
     justifyContent: "center",
     alignItems: "center",
-    alignSelf:"center"
-  }, text4:{alignSelf:"center",bottom:180,elevation:77, color:colors.lightcolor,fontWeight:"bold",fontSize:20},
-  text5:{alignSelf:"center",bottom:180,elevation:77, fontWeight:"bold",fontSize:15,color:colors.white},
- 
+    alignSelf: "center"
+  }, text4: { alignSelf: "center", bottom: 180, elevation: 77, color: colors.lightcolor, fontWeight: "bold", fontSize: 20 },
+  text5: { alignSelf: "center", bottom: 180, elevation: 77, fontWeight: "bold", fontSize: 15, color: colors.white },
+
 
   profileHeaderText: {
     alignSelf: "center",
