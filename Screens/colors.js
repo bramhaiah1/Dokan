@@ -1,6 +1,7 @@
 
 const colors={
     backgroundcolor:'rgba(115,149,160,255)',
+    lightcolor:'rgb(212,204,228)',
     white:'#fff',
     dotcolor:'rgba(0, 0, 0, .2)',
     activedotcolor:'rgb(40,212,196)',

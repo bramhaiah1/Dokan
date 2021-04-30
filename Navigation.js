@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View,SafeAreaView,ScrollView,TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View,SafeAreaView,ScrollView,TouchableOpacity,Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
 import Fontisto from "react-native-vector-icons/Fontisto";
  import MaterialIcons  from 'react-native-vector-icons/MaterialIcons';
@@ -35,6 +35,8 @@ import Whitlist1 from './Screens/whitlist1'
 import order from "./Screens/orderscreen";
 import checkout from "./Screens/checkout";
 import loader from './Screens/loader'
+import {colors} from './Screens/colors'
+
 const TabNavigator = createBottomTabNavigator(
   {
 
@@ -317,56 +319,50 @@ const NavigationDrawer = createDrawerNavigator({
 },
 {
   contentComponent: (props) => (
-    <SafeAreaView>
-      <View style={styles.sideMenuContainer}>
-      <AntDesign onPress={()=>props.navigation.goBack()} name="arrowleft" size={35} style={{color:"#fff",alignSelf:"flex-end"}}  />
+    <SafeAreaView style={{overflow:"hidden"}}>
 
-        <View style={styles.profileHeader}>
-          <View style={styles.profileHeaderPicCircle}>
-          <AntDesign name='user' size={46} color='rgba(183,207,208,255)'/>
-           
+        <View style={{height:200,width:width, backgroundColor:colors.activedotcolor,borderBottomLeftRadius:220,borderBottomRightRadius:220,right:width/40}}>
+          
+        <View style={{height:200,backgroundColor:colors.lightcolor,borderBottomLeftRadius:180,borderBottomRightRadius:200,width:width,right:width/5,elevation:12}}>
+        <View style={{height:200,backgroundColor:'#0e153d',borderBottomLeftRadius:200,borderBottomRightRadius:200,width:width,left:width/6,elevation:32}}/></View>
+
           </View>
-        </View>
-
-        <View style={{ width: "100%", flex: 1 }}>
-          <ScrollView>
-            <View
-              style={{
-               // flexDirection: "row",
-                color: "white",
-                backgroundColor: 'rgba(183,207,208,255)',
-              }}
-            >
-              <View style={{paddingBottom:height/50}} >
+<Image  style={{alignSelf:"center",elevation:77,bottom:180}}                              
+       source={require("./assets/ProfileAvatar.png")} 
+    />
+    <Text style={styles.text4}>Fariha Anjum</Text>
+    <Text style={styles.text5}>farihaanjum@gmail.com</Text>
+    <AntDesign onPress={()=>props.navigation.goBack()} name="arrowleft" size={35} style={{color:colors.ash,alignSelf:"flex-end",bottom:350}}  />
+    
+    <View style={{bottom:150,paddingBottom:height/50,paddingTop:height/50}} >
                 <TouchableOpacity onPress={()=>props.navigation.goBack()}>
-                <Text style={{color:"#fff",fontWeight:"bold",fontSize:22,left:width/10}}><AntDesign name="home" size={25}  /> Home</Text>
+                <Text style={{color:colors.backgroundcolor,fontWeight:"bold",fontSize:22,left:width/10}}><AntDesign name="home" size={25} color={colors.backgroundcolor}  /> Home</Text>
                 </TouchableOpacity>
-                
+                <View style={{borderWidth:1,borderColor:colors.lightcolor}}/>
+
                 </View>
-                <View style={{borderWidth:1,borderColor:"#fff"}}/>
-                <View style={{paddingBottom:height/50,paddingTop:height/50}} >
-                <TouchableOpacity  onPress={()=>props.navigation.goBack()}>
-                <Text style={{color:"#fff",fontWeight:"bold",fontSize:22,left:width/10}}><AntDesign name="bells" size={25}  /> Notifications</Text>
+                <View style={{bottom:150,paddingBottom:height/50,paddingTop:height/50}} >
+                <TouchableOpacity onPress={()=>props.navigation.goBack()}>
+                <Text style={{color:colors.backgroundcolor,fontWeight:"bold",fontSize:22,left:width/10}}><AntDesign name="bells" size={25} color={colors.backgroundcolor}  /> Notifications</Text>
                 </TouchableOpacity>
-                
+                <View style={{borderWidth:1,borderColor:colors.lightcolor}}/>
+
                 </View>
-                <View style={{borderWidth:1,borderColor:"#fff"}}/>
-                <View style={{paddingBottom:height/50,paddingTop:height/50}} >
-                <TouchableOpacity>
-                <Text style={{color:"#fff",fontWeight:"bold",fontSize:22,left:width/10}}> <AntDesign name="infocirlceo" size={25}  /> About Us</Text>
+                <View style={{bottom:150,paddingBottom:height/50,paddingTop:height/50}} >
+                <TouchableOpacity onPress={()=>props.navigation.goBack()}>
+                <Text style={{color:colors.backgroundcolor,fontWeight:"bold",fontSize:22,left:width/10}}> <AntDesign name="infocirlceo" size={25} color={colors.backgroundcolor}  /> About Us</Text>
                 </TouchableOpacity>
-                
+                <View style={{borderWidth:1,borderColor:colors.lightcolor}}/>
+
                 </View>
-                <View style={{borderWidth:1,borderColor:"#fff"}}/>
-                <View style={{paddingBottom:height/50,paddingTop:height/50}} >
-                                  <TouchableOpacity onPress={()=>props.navigation.navigate('LoginScreen')}>
-                <Text style={{color:"#fff",fontWeight:"bold",fontSize:22,left:width/10}}><FontAwesome5Icon name="sign-in-alt" size={25}  /> Login</Text>
+                <View style={{bottom:150,paddingBottom:height/50,paddingTop:height/50}} >
+                <TouchableOpacity onPress={()=>props.navigation.navigate('LoginScreen')}>
+                <Text style={{color:colors.backgroundcolor,fontWeight:"bold",fontSize:22,left:width/10}}> <FontAwesome5Icon name="sign-in-alt" size={25} color={colors.backgroundcolor}   /> Login</Text>
                 </TouchableOpacity>
-                
+                <View style={{borderWidth:1,borderColor:colors.lightcolor}}/>
+
                 </View>
-              {/* <DrawerItems  {...props} /> */}
-              </View>
-          </ScrollView></View></View>
+                
     </SafeAreaView>
 
   )
@@ -384,9 +380,9 @@ const styles = StyleSheet.create({
   sideMenuContainer: {
     width: "100%",
     height: "100%",
-    backgroundColor: 'rgba(183,207,208,255)',
-    paddingTop: 40,
+    //backgroundColor: 'rgba(183,207,208,255)',
     color: "rgb(0,0,0)",
+    overflow:"hidden"
   },
   profileHeader: {
     flexDirection: "row",
@@ -406,7 +402,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     alignSelf:"center"
-  },
+  }, text4:{alignSelf:"center",bottom:180,elevation:77, color:colors.lightcolor,fontWeight:"bold",fontSize:20},
+  text5:{alignSelf:"center",bottom:180,elevation:77, fontWeight:"bold",fontSize:15,color:colors.white},
+ 
+
   profileHeaderText: {
     alignSelf: "center",
     paddingHorizontal: 10,
